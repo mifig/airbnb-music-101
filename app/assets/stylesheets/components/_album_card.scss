@@ -1,0 +1,12 @@
+.albums-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.album-card {
+  a {
+    height: 100%;
+    width: 100%;
+  }
+}

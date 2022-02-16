@@ -1,0 +1,6 @@
+<div class="album-card" style="background-image: url('<%= cl_image_path album.photo.key %>')">
+    <%= link_to album.title, album_path(album) %>
+    <h2><%= album.title %></h2>
+    <p><%= album.user.username %></p>
+    <p><%= album.price %> €</p>
+</div>
