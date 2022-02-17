@@ -4,7 +4,7 @@
   padding: 40px 24px 24px 24px;
   border-radius: 0px 0px 30px 30px;
   position: relative;
-  box-shadow: 0px 12px 8px -6px purple;
+  box-shadow: 0px 12px 10px -8px #aa14f0;
 }
 
 h2 {
@@ -17,9 +17,18 @@ h2 {
   padding: 40px 24px 24px 24px;
   border-radius: 0px 0px 30px 30px;
   color: white;
+}
 
-  // .album-card-info {
-  //   color: white;
-  //   text-shadow: 2px 2px 0px #aa14f0;
-  // }
+.white-border {
+  border: 4px solid white;
+
+  a {
+    color: white;
+    text-shadow: 2px 2px 0px #aa14f0;
+
+    &:hover {
+      color: #BC8CF2;
+      text-shadow: 0px 0px 5px #aa14f0;
+    }
+  }
 }

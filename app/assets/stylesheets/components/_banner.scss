@@ -4,9 +4,19 @@
   height: 370px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0px 3px 10px 0px black;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   h1 {
     color: white;
     padding: 10px 0px;
+    text-shadow: 2px 2px 0px #aa14f0;
+    background: linear-gradient(28deg, black, transparent);
+    width: 100%;
+    text-align: center;
   }
 }

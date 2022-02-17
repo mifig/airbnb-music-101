@@ -14,7 +14,7 @@
 
 <% if user_signed_in? %>
   <div class="container mb-3 black-edged-bg">
-    <h2 class="pb-1 pt-2">Your albums...</h2>
+    <h2 class="pb-1 pt-2">My albums...</h2>
 
     <div class="albums-grid">
       <% @albums.sample(4).each do |album| %>
@@ -23,3 +23,5 @@
     </div>
   </div>
 <% end %>
+
+<%= render "shared/footer" %>

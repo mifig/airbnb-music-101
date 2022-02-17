@@ -2,33 +2,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: black;
   padding: 8px 0px;
   font-size: 16px;
   box-shadow: 0px 3px 12px rgba(0,0,0,0.3);
-  border-top: 4px solid black;
-  border-bottom: 4px solid black;
-  transition: 0.5s ease;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  transition: 1s ease;
 }
 
 .navbar-links {
   font-size: 18px;
-  text-shadow: 1px 1px 0px black;
   text-decoration: none;
   margin-left: 10px;
-  color: #AA14F0;
-  transition: 0.5s ease;
+  color: white;
+  text-shadow: 2px 2px 0px #aa14f0;
   
   &:hover {
-    color: #BC8CF2;
-    text-shadow:none;
+    color: white;
+    text-shadow: 0px 0px 5px #aa14f0;
     font-weight: bold;
   }
 }
 
 .logo {
   font-size: 24px;
-  text-decoration: underline;
 }
 
 .left-border-link {
@@ -36,12 +34,10 @@
 }
 
 .filtered-background {
-  transition: 1s ease;
   background: rgba(0,0,0,0.35);
 }
 
 .scrolled-links {
-  text-shadow: 1px 1px 0px #aa14f0;
+  text-shadow: 0px 0px 2px #aa14f0;
   color: white;
-  transition: 1s ease;
 }
