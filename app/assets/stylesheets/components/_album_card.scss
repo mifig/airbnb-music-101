@@ -1,7 +1,33 @@
-.albums-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+@media(min-width: 1000px) {
+  .albums-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+@media(max-width: 1000px) {
+  .albums-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+@media(max-width: 600px) {
+  .albums-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+@media(max-width: 375px) {
+  .albums-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
 }
 
 .album-card {
