@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.white-round-bg {
+  background: white;
+  padding: 40px 24px 24px 24px;
+  border-radius: 0px 0px 30px 30px;
+  position: relative;
+  box-shadow: 0px 12px 8px -6px purple;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+.black-edged-bg {
+  background: black;
+  margin-top: -22px;
+  padding: 40px 24px 24px 24px;
+  border-radius: 0px 0px 30px 30px;
+  color: white;
+
+  // .album-card-info {
+  //   color: white;
+  //   text-shadow: 2px 2px 0px #aa14f0;
+  // }
+}

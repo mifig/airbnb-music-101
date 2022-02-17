@@ -1,5 +1,25 @@
-<div class="albums-grid">
-  <% @albums.each do |album| %>
-    <%= render "albums/partials/album_card", album: album %>
-  <% end %>
+<div class="banner">
+  <h1>Many albums at the palm of your hand.</h1>
 </div>
+
+<div class="container white-round-bg">
+  <h2 class="pb-1">Featured albums...</h2>
+
+  <div class="albums-grid">
+    <% @albums.sample(4).each do |album| %>
+      <%= render "albums/partials/album_card", album: album, locals: { whiteborder: false } %>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <div class="container mb-3 black-edged-bg">
+    <h2 class="pb-1 pt-2">Your albums...</h2>
+
+    <div class="albums-grid">
+      <% @albums.sample(4).each do |album| %>
+        <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

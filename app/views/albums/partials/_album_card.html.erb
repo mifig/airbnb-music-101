@@ -1,6 +1,10 @@
-<div class="album-card" style="background-image: url('<%= cl_image_path album.photo.key %>')">
-    <%= link_to album.title, album_path(album) %>
-    <h2><%= album.title %></h2>
-    <p><%= album.user.username %></p>
-    <p><%= album.price %> €</p>
+<div class="album-card container <%= 'white-border' if local_assigns[:locals][:whiteborder] %>" style="background-image: url('<%= cl_image_path album.photo.key %>')">
+
+  <%= link_to album_path(album) do %>
+    <div class="album-card-info">
+      <h2><%= album.title %></h2>
+      <p><%= album.user.username %></p>
+      <p class="rb-position"><%= album.price.round %> €</p>
+    </div>
+  <% end %>
 </div>
