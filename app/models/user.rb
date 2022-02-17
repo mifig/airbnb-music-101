@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :albums
   has_many :musics, through: :albums
+  has_many :sales, through: :albums
   
   has_one_attached :photo
 end
