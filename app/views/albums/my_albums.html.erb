@@ -1,0 +1,17 @@
+<div class="mb-3 black-edged-bg">
+  <h2 class="pb-1 pt-2">My Albums:</h2>
+  
+  <% if @sales.empty? && current_user.role == "user" %>
+    <p>Currently you don't have any albums. Do you want to buy one? Browse for an album!</p>
+    <%= render "shared/search_form" %>
+  <% end %>
+  
+  <div class="albums-grid">
+    <% if current_user.role == "artist" %>
+      <%= link_to "+ Add Album!", new_album_path, class: "button-round-shadow align-items-center d-flex justify-content-center" %>
+    <% end %>
+    <% @my_albums.each do |album| %>
+      <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+    <% end %>
+  </div>
+</div>

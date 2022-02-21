@@ -1,0 +1,33 @@
+.button-round-shadow {
+  text-decoration: none;
+  color: white;
+  border-radius: 25px;
+  border: 1px solid white;
+  padding: 8px 16px;
+  box-shadow: 0px 0px 15px #aa14f0;
+  text-shadow: 2px 2px 0px #aa14f0;
+  transition: ease 0.5s;
+  text-align: center;
+
+  &:hover {
+    text-shadow: none;
+    font-weight: bold;
+    color: white;
+    box-shadow: none;
+    transition: ease 1s;
+  }
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.cancel-btn {
+  color: white;
+  transition: 0.5s;
+
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
+}

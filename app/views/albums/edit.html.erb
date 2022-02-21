@@ -1,0 +1,36 @@
+<div class="container mb-4">
+  <h2 class="my-3">Album Edit</h2>
+
+  <%= simple_form_for @album do |f| %>
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "button-round-shadow black-bg" %>
+  <% end %>
+</div>
+
+<div class="container mb-3">
+  <h2>Edit Musics</h2>
+  <% @album.musics.each_with_index do |music, i| %>
+    <div class="d-flex align-items-center mb-3">
+      <p class="m-0 p-0 me-5"><%= i + 1 %></p>
+      <div class="me-5" style="width: 30%">
+        <p class="m-0 p-0 line-heigth-sm"><%= music.name %></p>
+      </div>
+      <%= cl_video_tag music.audio.key, controls: true, class: "audio-bar flex-grow-1" %>
+      <%= link_to "delete", music_path(music), method: :delete, data: {confirm: "Are you sure?"}, class: "px-3 delete-link" %>
+    </div>
+    <hr>
+  <% end %>
+
+  <div class="d-flex align-items-center mb-4">
+    <p class="m-0 p-0 me-5">#</p>
+    <div class="me-5 flex-grow-1" style="width: 30%">
+      <%= simple_form_for [@album, @music] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :audio, as: :file %>
+        <%= f.button :submit, class: "button-round-shadow black-bg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

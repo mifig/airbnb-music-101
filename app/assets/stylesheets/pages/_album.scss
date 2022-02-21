@@ -1,0 +1,66 @@
+.album-title {
+  text-shadow: 0px 0px 5px #aa14f0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.with-image-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 60px #aa14f0;
+  position: relative;
+}
+
+.div-below {
+  margin-top: -50px;
+}
+
+.white-shadow {
+  color: transparent;
+  text-shadow: 5px 5px 1px white;
+}
+
+.abs-bt-position {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+}
+
+.purple-shadowed-text {
+  text-shadow: 0px 0px 5px #aa14f0;
+  font-size: 24px;
+  background: linear-gradient(-10deg, #aa14f0, black);
+  padding: 0px 10px;
+}
+
+.line-heigth-sm {
+  line-height: 16px;
+}
+
+.artist-p {
+  color: rgba(250,250,250,0.4)
+}
+
+.musics {
+  hr {
+    margin: 10px 0px;
+  }
+
+  hr:last-child {
+    display: none;
+  }
+}
+
+.delete-link {
+  text-decoration: none;
+  color: #6a0c96;
+
+  &:hover {
+    color: #aa14f0;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="container mb-3">
+  <h2 class="my-3">Add Your Album!</h2>
+
+  <%= simple_form_for @album do |f| %>
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "button-round-shadow black-bg" %>
+  <% end %>
+</div>

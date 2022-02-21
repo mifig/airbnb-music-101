@@ -16,12 +16,23 @@
   <div class="mb-3 black-edged-bg">
     <h2 class="pb-1 pt-2">My albums...</h2>
 
-    <div class="albums-grid">
-      <% @albums.sample(4).each do |album| %>
-        <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+      <% if @user_albums.empty? %>
+        <% if current_user.role == "artist" %>
+          <h5 class="my-3 pb-3">You currently have no albums... Upload yours right away!</h3>
+          <%= link_to "+ Add Album!", new_album_path, class: "button-round-shadow" %>
+        <% else %>
+          <p>Currently you don't have any albums. Do you want to buy one? Browse for an album!</p>
+          <%= render "shared/search_form" %>
+        <% end %>
+      <% else %>
+        <div class="albums-grid">
+          <% @user_albums.sample(4).each do |album| %>
+            <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+          <% end %>
+          <% if current_user.role == "artist" %>
+            <%= link_to "+ Add Album!", new_album_path, class: "button-round-shadow align-items-center d-flex justify-content-center" %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
   </div>
 <% end %>
-
-<%= render "shared/footer" %>

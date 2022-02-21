@@ -1,0 +1,8 @@
+<%= form_tag albums_path, method: :get, class: "pe-3 search-form" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for an album.."
+  %>
+  <%= submit_tag "Search", class: "search-button" %>
+<% end %> 

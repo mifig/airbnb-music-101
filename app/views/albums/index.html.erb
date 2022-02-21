@@ -1,0 +1,9 @@
+<div class="mb-3 black-edged-bg">
+  <h2 class="pb-1 pt-2">Albums:</h2>
+  
+  <div class="albums-grid">
+    <% @albums.each do |album| %>
+      <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+    <% end %>
+  </div>
+</div>

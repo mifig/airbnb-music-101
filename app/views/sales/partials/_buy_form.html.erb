@@ -1,0 +1,24 @@
+<!-- Button trigger modal -->
+<button type="button" class="flex-grow-1 button-round-shadow black-bg my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Buy Album!
+</button>
+
+<%# <%= link_to "Buy Album!", "#", class: "flex-grow-1 button-round-shadow" %>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content black-bg">
+      <div class="modal-header purple-shadow">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @album.title %></h5>
+      </div>
+      <div class="modal-body">
+        PRICE: <%= @album.price.round %> €
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Buy", album_sales_path(@album), method: :post, class: "button-round-shadow black-bg" %>
+        <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,32 @@
 class AlbumsController < ApplicationController
+  def index
+    if params[:query].present?
+      @albums = Album.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @albums = Album.all
+    end
+  end
+
+  def my_albums
+    @sales = current_user.sales
+
+    if !@sales.empty?
+      @my_albums =  []
+      @sales.each do |sale|
+        @my_albums << sale.album
+      end
+    elsif 
+      @my_albums = current_user.albums
+    end
+  end
+
   def show
     @album = Album.find(params[:id])
+  end
+
+  def edit
+    @album = Album.find(params[:id])
+    @music = Music.new
   end
 
   def new

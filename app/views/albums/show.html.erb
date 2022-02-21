@@ -1,0 +1,35 @@
+<div class="mb-3 black-edged-bg with-image-bg position-relative" style="background-image: url('<%= cl_image_path @album.photo.key %>')">
+  <div class="album-title">
+    <div>
+      <h1 class="pb-1 pt-2"><%= @album.title %></h1>
+      <h3 class="white-shadow"><%= @album.user.username %></h3>
+    </div>
+  </div>
+  <p class="abs-bt-position purple-shadowed-text">PRICE: <strong><%= @album.price.round %> €</strong></p>
+</div>
+
+<div class="mb-3 black-edged-bg div-below">
+  <% if current_user.role == "user" %>
+    <div class="d-flex justify-content-center mb-3">
+      <%= render "sales/partials/buy_form" %>
+    </div>
+  <% end %>
+
+  <div class="musics">
+    <% @album.musics.each_with_index do |music, i| %>
+      <div class="d-flex align-items-center mb-3">
+        <p class="m-0 p-0 me-5" style="text-shadow: 2px 2px 0px #aa14f0"><%= i + 1 %></p>
+        <div class="me-5" style="width: 30%">
+          <p class="m-0 p-0 line-heigth-sm"><%= music.name %></p>
+          <p class="m-0 p-0 line-heigth-sm artist-p"><%= music.album.user.username %></p>
+        </div>
+        <%= cl_video_tag music.audio.key, controls: true, class: "audio-bar flex-grow-1" %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+
+  <% if current_user.role == "artist" %>
+    <%= link_to "Edit Album", edit_album_path(@album), class: "button-round-shadow" %>
+  <% end %>
+</div>
