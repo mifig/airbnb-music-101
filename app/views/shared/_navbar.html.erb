@@ -30,7 +30,7 @@
 
   <div class="avatarmenu hide" data-navbar-target="avatarmenu">
     <div class="row">
-      <button data-action="click->navbar#closeMenu">x</button>
+      <button data-action="click->navbar#closeMenu" data-navbar-target="closebtn">x</button>
     </div>
     <div class="row">
       <%= link_to "My Albums", my_albums_path, class: "navbar-brand navbar-links", "data-navbar-target": "linklogo" %>

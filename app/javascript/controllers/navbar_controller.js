@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["linklogo", "navlinks", "avatarmenu"]
+  static targets = ["linklogo", "navlinks", "avatarmenu", "closebtn"]
 
   connect() {
     if (window.innerWidth < 900) {
@@ -31,8 +31,16 @@ export default class extends Controller {
     console.log(this.avatarmenuTarget)
     if (this.avatarmenuTarget.classList.contains("hide")) {
       this.avatarmenuTarget.classList.remove("hide")
+      this.closebtnTarget.classList.remove("hide")
+      this.linklogoTargets.forEach((linklogo) => {
+        linklogo.classList.remove("hide")
+      })
     } else {
       this.avatarmenuTarget.classList.add("hide")
+      this.closebtnTarget.classList.add("hide")
+      this.linklogoTargets.forEach((linklogo) => {
+        linklogo.classList.add("hide")
+      })
     }
   }
 

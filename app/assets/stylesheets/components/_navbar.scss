@@ -51,7 +51,7 @@
   right: 0px;
   top: 66px;
   box-shadow: -3px 3px 3px #aa14f0;
-  transition: 0.5s ease;
+  transition: 1s ease;
   
   button {
     background: transparent;
@@ -74,5 +74,19 @@
 }
 
 .hide {
-  right: -200px;
+  right: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+
+  a {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  button {
+    padding: 0;
+  }
 }
