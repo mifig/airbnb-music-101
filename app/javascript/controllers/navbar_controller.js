@@ -32,15 +32,9 @@ export default class extends Controller {
     if (this.avatarmenuTarget.classList.contains("hide")) {
       this.avatarmenuTarget.classList.remove("hide")
       this.closebtnTarget.classList.remove("hide")
-      this.linklogoTargets.forEach((linklogo) => {
-        linklogo.classList.remove("hide")
-      })
     } else {
       this.avatarmenuTarget.classList.add("hide")
       this.closebtnTarget.classList.add("hide")
-      this.linklogoTargets.forEach((linklogo) => {
-        linklogo.classList.add("hide")
-      })
     }
   }
 
