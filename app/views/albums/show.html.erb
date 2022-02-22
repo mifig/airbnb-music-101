@@ -29,7 +29,7 @@
     <% end %>
   </div>
 
-  <% if current_user.role == "artist" %>
+  <% if policy(@album).edit? %>
     <%= link_to "Edit Album", edit_album_path(@album), class: "button-round-shadow" %>
   <% end %>
 </div>

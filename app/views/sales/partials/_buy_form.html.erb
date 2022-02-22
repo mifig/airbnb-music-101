@@ -1,14 +1,18 @@
 <!-- Button trigger modal -->
-<button type="button" class="flex-grow-1 button-round-shadow black-bg my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Buy Album!
-</button>
+<% if current_user.sales.find_by(album_id: @album) %>
+  <p>You already own this Album! Enjoy it!</p>
+<% else %>
+  <button type="button" class="flex-grow-1 button-round-shadow black-bg my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Buy Album!
+  </button>
+<% end %>
 
 <%# <%= link_to "Buy Album!", "#", class: "flex-grow-1 button-round-shadow" %>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content black-bg">
+    <div class="modal-content black-bg" style="border: 1px solid white">
       <div class="modal-header purple-shadow">
         <h5 class="modal-title" id="exampleModalLabel"><%= @album.title %></h5>
       </div>

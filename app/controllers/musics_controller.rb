@@ -11,6 +11,8 @@ class MusicsController < ApplicationController
         render "albums/show"
       end
     end
+
+    authorize @music
   end
 
   def destroy 
@@ -18,6 +20,8 @@ class MusicsController < ApplicationController
     @music.destroy
 
     redirect_to edit_album_path(@music.album.id)
+
+    authorize @music
   end
 
   private

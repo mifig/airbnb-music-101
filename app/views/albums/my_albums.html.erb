@@ -10,8 +10,14 @@
     <% if current_user.role == "artist" %>
       <%= link_to "+ Add Album!", new_album_path, class: "button-round-shadow align-items-center d-flex justify-content-center" %>
     <% end %>
-    <% @my_albums.each do |album| %>
-      <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+    <% if @sales.empty? %>
+      <% @my_albums.each do |album| %>
+        <%= render "albums/partials/album_card", album: album, locals: { whiteborder: true } %>
+      <% end %>
+    <% else %>
+      <% @sales.each do |sale| %>
+        <%= render "albums/partials/album_card", album: sale.album, locals: { whiteborder: true } %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -7,9 +7,11 @@ class SalesController < ApplicationController
     @sale.album = @album
 
     if @sale.save 
-      redirect_to :root
+      redirect_to my_albums_path
     else
       render "albums/show"
     end
+
+    authorize @sale
   end
 end

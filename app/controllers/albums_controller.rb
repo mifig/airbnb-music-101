@@ -1,32 +1,38 @@
 class AlbumsController < ApplicationController
+  before_action :set_album, only: [:show, :edit, :update, :destroy]
+
   def index
+    @albums = policy_scope(Album)
+
     if params[:query].present?
       @albums = Album.where("title ILIKE ?", "%#{params[:query]}%")
-    else
-      @albums = Album.all
     end
   end
 
   def my_albums
     @sales = current_user.sales
+    @my_albums = Album.new
 
-    if !@sales.empty?
-      @my_albums =  []
-      @sales.each do |sale|
-        @my_albums << sale.album
-      end
-    elsif 
+    if @sales.empty? || current_user.role == "artist"
       @my_albums = current_user.albums
     end
+
+    authorize @my_albums
   end
 
   def show
-    @album = Album.find(params[:id])
   end
 
   def edit
-    @album = Album.find(params[:id])
     @music = Music.new
+  end
+
+  def update
+      if @album.update(album_params)
+        redirect_to @album, notice: 'Album updated!'
+      else
+        render :edit
+      end
   end
 
   def new
@@ -34,6 +40,8 @@ class AlbumsController < ApplicationController
     @user = current_user
 
     @album.user = @user
+
+    authorize @album
   end
 
   def create
@@ -47,11 +55,11 @@ class AlbumsController < ApplicationController
     else
       render :new
     end
+
+    authorize @album
   end
 
   def destroy
-    @album = Album.find(:id)
-
     @album.destroy
 
     redirect_to :root
@@ -59,7 +67,13 @@ class AlbumsController < ApplicationController
 
   private
 
+  def set_album
+    @album = Album.find(params[:id])
+
+    authorize @album
+  end
+
   def album_params
-    params.require(:album).permit(:title, :price, :photo, :user_id)
+    params.require(:album).permit(:title, :price, :photo)
   end
 end
