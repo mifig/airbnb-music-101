@@ -41,3 +41,38 @@
   text-shadow: 0px 0px 2px #aa14f0;
   color: white;
 }
+
+
+.avatarmenu {
+  height: 100vh;
+  padding: 8px 32px 8px 12px;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  right: 0px;
+  top: 66px;
+  box-shadow: -3px 3px 3px #aa14f0;
+  transition: 0.5s ease;
+  
+  button {
+    background: transparent;
+    border: none;
+    color: white;
+    text-shadow: 1px 1px 0px #aa14f0;
+    text-align: end;
+    padding-right: 0px;
+    
+    &:hover {
+      font-weight: bold;
+      color: white;
+      text-shadow: 0px 0px 5px #aa14f0;
+    }
+  }
+
+  a:hover {
+    background: rgba(250,250,250,0.1);
+  }
+}
+
+.hide {
+  right: -200px;
+}
