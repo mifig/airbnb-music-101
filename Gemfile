@@ -68,3 +68,4 @@ gem 'devise'
 gem 'faker'
 gem 'pundit'
 gem "geocoder"
+gem "pg_search", '~> 2.3.0'

@@ -5,7 +5,8 @@ class AlbumsController < ApplicationController
     @albums = policy_scope(Album)
 
     if params[:query].present?
-      @albums = Album.where("title ILIKE ?", "%#{params[:query]}%")
+      # @albums = Album.where("title ILIKE ?", "%#{params[:query]}%")
+      @albums = Album.search_by_title(params[:query])
     end
   end
 

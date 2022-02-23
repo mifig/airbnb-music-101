@@ -1,0 +1,3 @@
+#########1. Correct heroku problem of not recognizing address field in sales.
+2. Substitute old search by new search method (Search Class)
+2. Add Reviews (Ajax Class - to make reviews showing ajaxified)
