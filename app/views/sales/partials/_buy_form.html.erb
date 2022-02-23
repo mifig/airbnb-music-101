@@ -17,10 +17,18 @@
         <h5 class="modal-title" id="exampleModalLabel"><%= @album.title %></h5>
       </div>
       <div class="modal-body">
-        PRICE: <%= @album.price.round %> €
+        <p><u>PRICE:</u> <strong><%= @album.price.round %> €</strong></p>
+        <%= simple_form_for [@album, @sale] do |f| %>
+          <%= f.input :address, 
+                      label: "Delivery Address:",
+                      input_html: { data: { mapbox_target: "address" }, class: "d-none" },
+                      wrapper_html: { data: { controller: "mapbox", mapbox_api_key_value: ENV['MAPBOX_API_KEY'] }} %>
+
+          <%= f.button :submit, "Buy", class: "button-round-shadow black-bg", style: "width: 100%" %>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <%= link_to "Buy", album_sales_path(@album), method: :post, class: "button-round-shadow black-bg" %>
+        <%# <%= link_to "Buy", album_sales_path(@album), method: :post, class: "button-round-shadow black-bg" %>
         <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

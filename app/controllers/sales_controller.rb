@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
   def create
-    @sale = Sale.new
+    @sale = Sale.new(sale_params)
     @album = Album.find(params[:album_id])
 
     @sale.user = current_user
@@ -13,5 +13,11 @@ class SalesController < ApplicationController
     end
 
     authorize @sale
+  end
+
+  private
+
+  def sale_params
+    params.require(:sale).permit(:address)
   end
 end

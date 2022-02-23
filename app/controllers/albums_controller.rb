@@ -21,6 +21,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @sale = Sale.new
   end
 
   def edit
