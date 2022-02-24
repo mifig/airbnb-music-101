@@ -32,4 +32,14 @@
   <% if policy(@album).edit? %>
     <%= link_to "Edit Album", edit_album_path(@album), class: "button-round-shadow" %>
   <% end %>
+  <div class="reviews" data-controller="insert-reviews" data-insert-reviews-position-value="afterbegin">
+    <h5 class="review-header mb-4">Reviews</h5>
+    <%= render "reviews/partials/reviewform", review: @review, album: @album %>
+    
+    <div data-insert-reviews-target="reviews">
+      <% @reviews.each do |review| %>
+        <%= render "albums/partials/review", review: review %>
+      <% end %>
+    </div>
+  </div>
 </div>

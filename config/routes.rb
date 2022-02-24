@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :albums, only: [:index, :show, :edit, :update, :new, :create, :destroy, :my_albums] do
     resources :musics, only: [:index, :new, :create]
     resources :sales, only: [:create]
+    resources :reviews, only: [:create]
   end
 
   resources :musics, only: [:destroy]

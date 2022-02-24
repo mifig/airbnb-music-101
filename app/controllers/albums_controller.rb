@@ -13,16 +13,19 @@ class AlbumsController < ApplicationController
   def my_albums
     @sales = current_user.sales
     @my_albums = Album.new
+    
+    authorize @my_albums
 
     if @sales.empty? || current_user.role == "artist"
       @my_albums = current_user.albums
     end
 
-    authorize @my_albums
   end
 
   def show
     @sale = Sale.new
+    @review = Review.new
+    @reviews = @album.reviews.order(created_at: :desc)
   end
 
   def edit
@@ -52,13 +55,13 @@ class AlbumsController < ApplicationController
 
     @album.user = @user
 
+    authorize @album
+    
     if @album.save
       redirect_to album_path(@album)
     else
       render :new
     end
-
-    authorize @album
   end
 
   def destroy

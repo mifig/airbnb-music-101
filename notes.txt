@@ -1,3 +1,23 @@
-#########1. Correct heroku problem of not recognizing address field in sales.
-2. Substitute old search by new search method (Search Class)
-2. Add Reviews (Ajax Class - to make reviews showing ajaxified)
+  ------
+// TODO //
+  ------
+  > Front-End: 
+    > Redo pages:
+      > log-in
+      > edit
+      > sign-up
+      > flash notices
+  > Link to delete album (with modal confirmation)
+  > Link to update review or delete if user = current_user
+  > Add Artist page
+
+  -----
+// DONE //
+  -----
+  > Correct heroku problem of not recognizing address field in sales.
+  > Substitute old search by new search method (Search Class)
+  > Add Album Reviews (Ajax Class - to make reviews ajaxable - Stimulus):
+    > Model
+    > Controller
+    > Adapt Album#Show View to see and add reviews
+    > Implement Stimulus logic to let the reviews become ajaxable

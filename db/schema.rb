@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_120845) do
+ActiveRecord::Schema.define(version: 2022_02_24_153042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2022_02_23_120845) do
     t.index ["album_id"], name: "index_musics_on_album_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_reviews_on_album_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "album_id", null: false
@@ -92,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_120845) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "albums", "users"
   add_foreign_key "musics", "albums"
+  add_foreign_key "reviews", "albums"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sales", "albums"
   add_foreign_key "sales", "users"
 end

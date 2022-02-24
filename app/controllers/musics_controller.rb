@@ -4,24 +4,25 @@ class MusicsController < ApplicationController
       @album = Album.find_by_id(params[:album_id])
       @music = Music.new(music_params)
       @music.album = @album
-
+      
+      authorize @music
+      
       if @music.save
         redirect_to album_path(@album)
       else
         render "albums/show"
       end
     end
-
-    authorize @music
   end
 
   def destroy 
     @music = Music.find(params[:id])
+    
+    authorize @music
+    
     @music.destroy
 
     redirect_to edit_album_path(@music.album.id)
-
-    authorize @music
   end
 
   private

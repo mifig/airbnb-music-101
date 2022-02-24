@@ -1,0 +1,5 @@
+<%= simple_form_for [album, review], data: {  insert_reviews_target: "reviewform",
+                                              action: "submit->insert-reviews#send" } do |f| %>
+  <%= f.input :content, label: false, wrapper_html: { class: "mb-0" } %>
+  <%= f.button :submit %>
+<% end %>

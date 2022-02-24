@@ -3,6 +3,7 @@ class Album < ApplicationRecord
   
   has_many :musics, dependent: :destroy
   has_many :sales
+  has_many :reviews, dependent: :destroy
   
   has_one_attached :photo
 

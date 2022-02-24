@@ -1,0 +1,16 @@
+<hr>
+<div class="d-flex">
+  <%= cl_image_tag review.user.photo.key, class: "avatar-mini me-2" %>
+  <div>
+    <p class="review-username m-0"><%= review.user.username %></p>
+    <% time_elapsed = Time.now - review.created_at %>
+    <% if (time_elapsed / 1.hours).round > 24 %>
+      <p class="m-0 review-time"><%= (time_elapsed / 1.days).round %> days ago</p>
+    <% elsif (time_elapsed / 1.minutes).round > 60 %>
+      <p class="m-0 review-time"><%= (time_elapsed / 1.hours).round %> hours ago</p>
+    <% else %>
+      <p class="m-0 review-time"><%= (time_elapsed / 1.minutes).round %> minutes ago</p>
+    <% end %>
+  </div>
+</div>
+<p class="review-text" id="review-<%= review.id %>"><%= review.content %></p>
