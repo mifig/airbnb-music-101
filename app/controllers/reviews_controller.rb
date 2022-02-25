@@ -19,6 +19,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @album = @review.album
+
+    authorize @review
+
+    @review.destroy
+
+    redirect_to album_path(@album)
+  end
+
   private
 
   def review_params

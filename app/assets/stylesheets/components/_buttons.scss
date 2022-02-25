@@ -31,3 +31,38 @@
     color: white;
   }
 }
+
+.cancel-account-btn {
+  text-decoration: none;
+  color: white;
+  background: rgba(0,0,0,0.2);
+  border-radius: 24px;
+  padding: 12px 16px;
+  transition: 0.5s ease;
+
+  &:hover {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 0px 15px white;
+  }
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  text-shadow: 1px 1px 0px #aa14f0;
+  text-align: end;
+  padding-right: 0px;
+}
+
+.delete-btn {
+  text-decoration: none;
+  color: mediumvioletred;
+
+  &:hover {
+    color: white;
+    text-shadow: 0px 0px 10px #aa14f0;
+  }
+}

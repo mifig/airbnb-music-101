@@ -67,7 +67,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
 
-    redirect_to :root
+    redirect_to my_albums_path
   end
 
   private

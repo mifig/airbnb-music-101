@@ -30,8 +30,14 @@
   </div>
 
   <% if policy(@album).edit? %>
-    <%= link_to "Edit Album", edit_album_path(@album), class: "button-round-shadow" %>
+    <div class="text-center">
+      <%= link_to "Edit Album", edit_album_path(@album), class: "button-round-shadow" %>
+    </div>
+    <div class="text-center mt-2">
+      <%= link_to "delete album", album_path(@album), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-btn" %>
+    </div>
   <% end %>
+  
   <div class="reviews" data-controller="insert-reviews" data-insert-reviews-position-value="afterbegin">
     <h5 class="review-header mb-4">Reviews</h5>
     <%= render "reviews/partials/reviewform", review: @review, album: @album %>

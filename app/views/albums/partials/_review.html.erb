@@ -13,4 +13,9 @@
     <% end %>
   </div>
 </div>
-<p class="review-text" id="review-<%= review.id %>"><%= review.content %></p>
+<div class="d-flex justify-content-between">
+  <p class="review-text" id="review-<%= review.id %>"><%= review.content %></p>
+  <% if current_user == review.user %>
+    <%= link_to "delete", review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn" %>
+  <% end %>
+</div>

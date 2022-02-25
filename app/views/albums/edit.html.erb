@@ -1,5 +1,5 @@
 <div class="container mb-4">
-  <h2 class="my-3">Album Edit</h2>
+  <h2 class="my-3 text-center">Album Edit</h2>
 
   <%= simple_form_for @album do |f| %>
     <%= f.input :title %>
@@ -9,8 +9,8 @@
   <% end %>
 </div>
 
-<div class="container mb-3">
-  <h2>Edit Musics</h2>
+<div class="container mt-5 mb-3">
+  <h2 class="text-center">Edit Musics</h2>
   <% @album.musics.each_with_index do |music, i| %>
     <div class="d-flex align-items-center mb-3">
       <p class="m-0 p-0 me-5"><%= i + 1 %></p>
@@ -23,14 +23,19 @@
     <hr>
   <% end %>
 
-  <div class="d-flex align-items-center mb-4">
-    <p class="m-0 p-0 me-5">#</p>
-    <div class="me-5 flex-grow-1" style="width: 30%">
-      <%= simple_form_for [@album, @music] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :audio, as: :file %>
-        <%= f.button :submit, class: "button-round-shadow black-bg" %>
-      <% end %>
+  <div data-controller="add-music">
+    <div class="text-center">
+      <button data-action="click->add-music#showForm" data-add-music-target="addbtn" class="button-round-shadow black-bg">+ Add Music</button>
+    </div>
+    <div class="d-flex align-items-center mb-4">
+      <div class="flex-grow-1 d-none music-form" style="width: 30%" data-add-music-target="musicform">
+        <%= simple_form_for [@album, @music] do |f| %>
+          <%= f.input :name %>
+          <%= f.input :audio, as: :file %>
+          <%= f.button :submit, class: "button-round-shadow black-bg" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+

@@ -1,14 +1,6 @@
   ------
 // TODO //
   ------
-  > Front-End: 
-    > Redo pages:
-      > log-in
-      > edit
-      > sign-up
-      > flash notices
-  > Link to delete album (with modal confirmation)
-  > Link to update review or delete if user = current_user
   > Add Artist page
 
   -----
@@ -21,3 +13,11 @@
     > Controller
     > Adapt Album#Show View to see and add reviews
     > Implement Stimulus logic to let the reviews become ajaxable
+  > Front-End: 
+    > Redo pages:
+      > log-in
+      > edit
+      > sign-up
+      > flash notices
+  > Link to delete album (with modal confirmation)
+  > Link to update review or delete if user = current_user
